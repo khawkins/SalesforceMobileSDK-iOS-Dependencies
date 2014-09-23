@@ -41,6 +41,8 @@ Pod::Spec.new do |s|
       commonutils.preserve_paths = 'SalesforceCommonUtils/Headers/SalesforceCommonUtils/*.h'
       commonutils.vendored_libraries = 'SalesforceCommonUtils/libSalesforceCommonUtils.a'
       commonutils.libraries = 'SalesforceCommonUtils'
+      commonutils.frameworks = 'MessageUI'
+      commonutils.libraries = 'z'
       commonutils.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/SalesforceCommonUtils/Headers" }
 
   end
