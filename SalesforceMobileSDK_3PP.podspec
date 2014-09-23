@@ -28,4 +28,21 @@ Pod::Spec.new do |s|
 
   end
 
+  s.subspec 'SQLCipher' do |sqlcipher|
+
+      sqlcipher.preserve_paths = 'sqlcipher/LICENSE'
+      sqlcipher.vendored_libraries = 'sqlcipher/libsqlcipher.a'
+      sqlcipher.libraries = 'sqlcipher'
+
+  end
+
+  s.subspec 'SalesforceCommonUtils' do |commonutils|
+
+      commonutils.preserve_paths = 'SalesforceCommonUtils/Headers/SalesforceCommonUtils/*.h'
+      commonutils.vendored_libraries = 'SalesforceCommonUtils/libSalesforceCommonUtils.a'
+      commonutils.libraries = 'SalesforceCommonUtils'
+      commonutils.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/SalesforceCommonUtils/Headers" }
+
+  end
+
 end
